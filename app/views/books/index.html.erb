@@ -1,0 +1,16 @@
+<h1>My Book List</h1>
+
+<ul>
+<% @books.each do |book| %>
+	<li>
+		<%= book.title %>
+		<%= book.author %>
+		<%= link_to 'Show', book_path(book) %>
+		<%= link_to 'Edit', edit_book_path(book) %>
+		<%= link_to 'Delete', book_path(book), :method => :delete, :data => {:confirm => "Are you sure you want to delete this book?"} %>
+	</li>
+<% end %>
+</ul>
+
+<%= link_to 'Add a new book', new_book_path %>
+<%= paginate @books %>
